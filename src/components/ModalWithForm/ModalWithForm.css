@@ -1,0 +1,38 @@
+.modal {
+  display: none;
+}
+
+.modal__content {
+  width: 430px;
+  padding: 34px 36px 28px;
+  border-radius: 16px;
+  background-color: #fff;
+}
+
+.modal__close {
+  border: none;
+  background: transparent;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.modal__title {
+  margin: 0 0 22px;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__submit {
+  margin-top: 32px;
+  padding: 20px;
+  border: none;
+  border-radius: 100px;
+  background-color: #2f71e5;
+  color: #fff;
+  cursor: pointer;
+}

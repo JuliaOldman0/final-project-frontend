@@ -1,0 +1,16 @@
+.login-modal__label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 31px;
+  color: #2f71e5;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.login-modal__input {
+  margin-top: 8px;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 1px solid #000;
+  font-size: 14px;
+}

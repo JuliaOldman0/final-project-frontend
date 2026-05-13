@@ -1,0 +1,29 @@
+.about {
+  display: flex;
+  gap: 56px;
+  padding: 80px 104px;
+}
+
+.about__image {
+  width: 464px;
+  height: 464px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: #d1d2d6;
+}
+
+.about__content {
+  max-width: 600px;
+}
+
+.about__title {
+  margin: 0 0 24px;
+  font-size: 40px;
+  line-height: 46px;
+}
+
+.about__text {
+  margin: 0;
+  font-size: 18px;
+  line-height: 24px;
+}
