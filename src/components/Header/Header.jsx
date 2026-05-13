@@ -1,10 +1,13 @@
+import { Link } from "react-router";
 import "./Header.css";
 import Navigation from "../Navigation/Navigation.jsx";
 
 function Header() {
   return (
     <header className="header">
-      <h1 className="header__title">NewsExplorer</h1>
+      <Link className="header__logo" to="/">
+        NewsExplorer
+      </Link>
       <Navigation />
     </header>
   );

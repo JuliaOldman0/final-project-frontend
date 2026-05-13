@@ -5,8 +5,9 @@
   padding: 30px 104px;
 }
 
-.header__title {
-  margin: 0;
+.header__logo {
+  color: inherit;
   font-size: 20px;
   line-height: 24px;
+  text-decoration: none;
 }

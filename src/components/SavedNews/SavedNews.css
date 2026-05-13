@@ -1,0 +1,21 @@
+.saved-news {
+  min-height: 400px;
+}
+
+.saved-news__header {
+  padding: 40px 104px 56px;
+}
+
+.saved-news__label {
+  margin: 0 0 28px;
+  color: #1a1b22;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.saved-news__title {
+  max-width: 530px;
+  margin: 0;
+  font-size: 40px;
+  line-height: 46px;
+}
