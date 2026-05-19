@@ -2,7 +2,7 @@ import "./Main.css";
 import SearchForm from "../SearchForm/SearchForm.jsx";
 import NewsCard from "../NewsCard/NewsCard.jsx";
 
-function Main({ articles }) {
+function Main({ articles, isLoading, searchError, onSearchSubmit }) {
   return (
     <main className="main">
       <section className="main__search">
@@ -11,11 +11,14 @@ function Main({ articles }) {
           Find the latest news on any topic and save them in your personal
           account.
         </p>
-        <SearchForm />
+
+        <SearchForm onSearchSubmit={onSearchSubmit} searchError={searchError} />
       </section>
 
       <section className="main__news news">
         <h2 className="news__title">Search results</h2>
+
+        {isLoading && <p className="news__loading">Searching for news...</p>}
 
         <ul className="news__list">
           {articles.map((article) => (
@@ -23,9 +26,11 @@ function Main({ articles }) {
           ))}
         </ul>
 
-        <button className="news__button" type="button">
-          Show more
-        </button>
+        {articles.length > 0 && (
+          <button className="news__button" type="button">
+            Show more
+          </button>
+        )}
       </section>
     </main>
   );

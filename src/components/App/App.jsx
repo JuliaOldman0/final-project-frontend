@@ -6,10 +6,13 @@ import Main from "../Main/Main.jsx";
 import SavedNews from "../SavedNews/SavedNews.jsx";
 import Footer from "../Footer/Footer.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
-import { mockNewsArticles } from "../../utils/mockNews.js";
+import { searchNews } from "../../utils/newsApi";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
+  const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [searchError, setSearchError] = useState("");
 
   const handleSignInClick = () => {
     setActiveModal("login");
@@ -18,6 +21,31 @@ function App() {
   const closeActiveModal = () => {
     setActiveModal("");
   };
+
+  function handleSearchSubmit(keyword) {
+    if (!keyword.trim()) {
+      setSearchError("Please enter a keyword");
+      return;
+    }
+
+    setSearchError("");
+    setArticles([]);
+    setIsLoading(true);
+
+    searchNews(keyword)
+      .then((data) => {
+        setArticles(data.articles);
+      })
+      .catch((err) => {
+        console.error(err);
+        setSearchError(
+          "Something went wrong during the request. Please try again.",
+        );
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }
 
   useEffect(() => {
     const handleEscClose = (event) => {
@@ -38,7 +66,17 @@ function App() {
       <Header onSignInClick={handleSignInClick} />
 
       <Routes>
-        <Route path="/" element={<Main articles={mockNewsArticles} />} />
+        <Route
+          path="/"
+          element={
+            <Main
+              articles={articles}
+              isLoading={isLoading}
+              searchError={searchError}
+              onSearchSubmit={handleSearchSubmit}
+            />
+          }
+        />
         <Route path="/saved-news" element={<SavedNews />} />
       </Routes>
 
