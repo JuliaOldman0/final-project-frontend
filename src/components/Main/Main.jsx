@@ -2,6 +2,7 @@ import "./Main.css";
 import SearchForm from "../SearchForm/SearchForm.jsx";
 import NewsCard from "../NewsCard/NewsCard.jsx";
 import Preloader from "../Preloader/Preloader.jsx";
+import About from "../About/About.jsx";
 
 function Main({
   articles,
@@ -73,6 +74,7 @@ function Main({
           )}
         </section>
       )}
+      <About />
     </main>
   );
 }

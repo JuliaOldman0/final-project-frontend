@@ -14,3 +14,12 @@
   border-bottom: 1px solid #000;
   font-size: 14px;
 }
+
+.register-modal__error {
+  display: block;
+  margin-top: 3px;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+}

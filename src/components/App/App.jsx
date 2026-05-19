@@ -13,6 +13,8 @@ import {
   saveArticle,
   deleteArticle,
 } from "../../utils/mockApi";
+import RegisterModal from "../RegisterModal/RegisterModal.jsx";
+import SuccessModal from "../SuccessModal/SuccessModal.jsx";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -23,6 +25,11 @@ function App() {
   const [visibleCards, setVisibleCards] = useState(3);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [savedArticles, setSavedArticles] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  const handleSignUpClick = () => {
+    setActiveModal("register");
+  };
 
   const handleSignInClick = () => {
     setActiveModal("login");
@@ -32,10 +39,31 @@ function App() {
     setActiveModal("");
   };
 
+  const handleRegistrationSuccess = ({ email, username }) => {
+    const user = {
+      email,
+      name: username,
+    };
+
+    localStorage.setItem("currentUser", JSON.stringify(user));
+    setCurrentUser(user);
+    setActiveModal("success");
+  };
+
+  const handleSignOut = () => {
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+    setCurrentUser(null);
+    setSavedArticles([]);
+  };
+
   function handleLogin({ email, password }) {
     login({ email, password })
       .then((data) => {
+        const savedUser = JSON.parse(localStorage.getItem("currentUser"));
+
         localStorage.setItem("jwt", data.token);
+        setCurrentUser(savedUser || data.user);
         setIsLoggedIn(true);
         closeActiveModal();
       })
@@ -128,19 +156,28 @@ function App() {
     }
 
     checkToken(token)
-      .then(() => {
+      .then((user) => {
+        const savedUser = JSON.parse(localStorage.getItem("currentUser"));
+
+        setCurrentUser(savedUser || user);
         setIsLoggedIn(true);
       })
       .catch((err) => {
         console.error(err);
         localStorage.removeItem("jwt");
         setIsLoggedIn(false);
+        setCurrentUser(null);
       });
   }, []);
 
   return (
     <div className="page">
-      <Header onSignInClick={handleSignInClick} />
+      <Header
+        onSignInClick={handleSignInClick}
+        isLoggedIn={isLoggedIn}
+        currentUser={currentUser}
+        onSignOut={handleSignOut}
+      />
 
       <Routes>
         <Route
@@ -169,6 +206,19 @@ function App() {
         isOpen={activeModal === "login"}
         onClose={closeActiveModal}
         onLogin={handleLogin}
+        onSignUpClick={handleSignUpClick}
+      />
+
+      <RegisterModal
+        isOpen={activeModal === "register"}
+        onClose={closeActiveModal}
+        onSignInClick={handleSignInClick}
+        onRegistrationSuccess={handleRegistrationSuccess}
+      />
+
+      <SuccessModal
+        isOpen={activeModal === "success"}
+        onSignInClick={handleSignInClick}
       />
     </div>
   );

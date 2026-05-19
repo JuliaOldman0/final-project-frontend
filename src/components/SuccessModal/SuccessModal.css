@@ -1,0 +1,30 @@
+.success-modal {
+  width: 430px;
+  min-height: 182px;
+  padding: 43px 36px 51px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-color: #fff;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.success-modal__title {
+  max-width: 315px;
+  margin: 0 0 14px;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 900;
+  color: #1a1b22;
+}
+
+.success-modal__link {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #2f71e5;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  cursor: pointer;
+}

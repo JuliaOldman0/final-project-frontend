@@ -7,6 +7,7 @@ function ModalWithForm({
   isOpen,
   onClose,
   onSubmit,
+  footer,
 }) {
   const handleOverlayClick = (event) => {
     if (event.target === event.currentTarget) {
@@ -32,6 +33,8 @@ function ModalWithForm({
           <button className="modal__submit" type="submit">
             {buttonText}
           </button>
+
+          {footer && <p className="modal__footer">{footer}</p>}
         </form>
       </div>
     </div>

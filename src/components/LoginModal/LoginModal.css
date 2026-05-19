@@ -1,16 +1,33 @@
 .login-modal__label {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 31px;
-  color: #2f71e5;
+  margin-bottom: 30px;
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 12px;
   line-height: 15px;
+  color: #2f71e5;
 }
 
 .login-modal__input {
+  width: 100%;
   margin-top: 8px;
-  padding: 10px 0;
+  padding: 0 0 10px;
   border: none;
   border-bottom: 1px solid #000;
+  outline: none;
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 14px;
+  line-height: 17px;
+  color: #000;
+}
+
+.login-modal__input::placeholder {
+  color: #b6bcbf;
+}
+
+.login-modal__error {
+  display: block;
+  margin-top: 3px;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
 }

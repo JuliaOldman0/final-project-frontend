@@ -1,16 +1,40 @@
-# React + Vite
+# News Explorer Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite frontend application for searching news articles using the News API. Users can search for recent articles, view results, simulate signing in, and save articles using stubbed frontend backend responses.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[View the deployed project](https://poetic-biscuit-b976c9.netlify.app/)
 
-## React Compiler
+## Project Description
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project is part of Stage 1.2: Connecting a Third-Party API.
 
-## Expanding the ESLint configuration
+The app allows users to:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Search for news articles by keyword
+- View articles from the last 7 days
+- See loading, error, and empty-result states
+- Display only three cards at first
+- Load more cards with the "Show more" button
+- Simulate user login
+- Simulate token checking
+- Simulate saving and deleting articles
+
+## Technologies Used
+
+- React
+- Vite
+- JavaScript
+- React Router
+- HTML5
+- CSS3
+- News API
+- Netlify
+
+## API
+
+The project uses the News API endpoint:
+
+```txt
+https://newsapi.org/v2/everything
