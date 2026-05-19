@@ -4,6 +4,7 @@ import Header from "../Header/Header.jsx";
 import Main from "../Main/Main.jsx";
 import SavedNews from "../SavedNews/SavedNews.jsx";
 import Footer from "../Footer/Footer.jsx";
+import { mockNewsArticles } from "../../utils/mockNews.js";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main articles={mockNewsArticles} />} />
         <Route path="/saved-news" element={<SavedNews />} />
       </Routes>
 

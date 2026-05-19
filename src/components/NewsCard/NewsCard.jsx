@@ -1,18 +1,30 @@
 import "./NewsCard.css";
 
-function NewsCard() {
+function NewsCard({ article }) {
+  const formattedDate = new Date(article.publishedAt).toLocaleDateString(
+    "en-US",
+    {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    },
+  );
+
   return (
-    <article className="news-card">
-      <div className="news-card__image"></div>
+    <li className="news-card">
+      <img
+        className="news-card__image"
+        src={article.urlToImage}
+        alt={article.title}
+      />
+
       <div className="news-card__content">
-        <p className="news-card__date">January 1, 2026</p>
-        <h3 className="news-card__title">News card title</h3>
-        <p className="news-card__text">
-          This is where the news article description will go.
-        </p>
-        <p className="news-card__source">Source</p>
+        <p className="news-card__date">{formattedDate}</p>
+        <h3 className="news-card__title">{article.title}</h3>
+        <p className="news-card__text">{article.description}</p>
+        <p className="news-card__source">{article.source.name}</p>
       </div>
-    </article>
+    </li>
   );
 }
 

@@ -24,3 +24,48 @@
   font-size: 18px;
   line-height: 24px;
 }
+
+.main__news {
+  background-color: #f5f6f7;
+  padding: 80px 104px;
+}
+
+.news__title {
+  max-width: 1232px;
+  margin: 0 auto 64px;
+  font-family: "Roboto Slab", Georgia, serif;
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: 400;
+  color: #1a1b22;
+}
+
+.news__list {
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.news__button {
+  display: block;
+  width: 288px;
+  height: 64px;
+  margin: 64px auto 0;
+  border: none;
+  border-radius: 80px;
+  background-color: #fff;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #1a1b22;
+  cursor: pointer;
+}
+
+.news__button:hover {
+  background-color: #e8e8e8;
+}
