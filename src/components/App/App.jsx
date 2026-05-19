@@ -7,6 +7,12 @@ import SavedNews from "../SavedNews/SavedNews.jsx";
 import Footer from "../Footer/Footer.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import { searchNews } from "../../utils/newsApi";
+import {
+  login,
+  checkToken,
+  saveArticle,
+  deleteArticle,
+} from "../../utils/mockApi";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -25,6 +31,18 @@ function App() {
   const closeActiveModal = () => {
     setActiveModal("");
   };
+
+  function handleLogin({ email, password }) {
+    login({ email, password })
+      .then((data) => {
+        localStorage.setItem("jwt", data.token);
+        setIsLoggedIn(true);
+        closeActiveModal();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
 
   function handleSearchSubmit(keyword) {
     if (!keyword.trim()) {
@@ -63,13 +81,28 @@ function App() {
     );
 
     if (isAlreadySaved) {
-      setSavedArticles(
-        savedArticles.filter(
-          (savedArticle) => savedArticle.url !== article.url,
-        ),
-      );
+      deleteArticle(article)
+        .then(() => {
+          setSavedArticles((currentSavedArticles) =>
+            currentSavedArticles.filter(
+              (savedArticle) => savedArticle.url !== article.url,
+            ),
+          );
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     } else {
-      setSavedArticles([...savedArticles, article]);
+      saveArticle(article)
+        .then((savedArticle) => {
+          setSavedArticles((currentSavedArticles) => [
+            ...currentSavedArticles,
+            savedArticle,
+          ]);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     }
   }
 
@@ -85,6 +118,24 @@ function App() {
     return () => {
       document.removeEventListener("keydown", handleEscClose);
     };
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+
+    if (!token) {
+      return;
+    }
+
+    checkToken(token)
+      .then(() => {
+        setIsLoggedIn(true);
+      })
+      .catch((err) => {
+        console.error(err);
+        localStorage.removeItem("jwt");
+        setIsLoggedIn(false);
+      });
   }, []);
 
   return (
@@ -114,7 +165,11 @@ function App() {
 
       <Footer />
 
-      <LoginModal isOpen={activeModal === "login"} onClose={closeActiveModal} />
+      <LoginModal
+        isOpen={activeModal === "login"}
+        onClose={closeActiveModal}
+        onLogin={handleLogin}
+      />
     </div>
   );
 }
