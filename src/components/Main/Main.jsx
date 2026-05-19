@@ -3,6 +3,7 @@ import SearchForm from "../SearchForm/SearchForm.jsx";
 import NewsCard from "../NewsCard/NewsCard.jsx";
 import Preloader from "../Preloader/Preloader.jsx";
 import About from "../About/About.jsx";
+import notFoundIcon from "../../assets/icons/not-found_v1.png";
 
 function Main({
   articles,
@@ -46,7 +47,17 @@ function Main({
             !isLoading &&
             !searchError &&
             articles.length === 0 && (
-              <p className="news__not-found">Nothing Found</p>
+              <div className="news__not-found">
+                <img
+                  className="news__not-found-icon"
+                  src={notFoundIcon}
+                  alt="Nothing found"
+                />
+                <h3 className="news__not-found-title">Nothing found</h3>
+                <p className="news__not-found-text">
+                  Sorry, but nothing matched your search terms.
+                </p>
+              </div>
             )}
 
           {!isLoading && !searchError && articles.length > 0 && (

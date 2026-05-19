@@ -2,12 +2,15 @@ import "./NewsCard.css";
 import normalIcon from "../../assets/icons/normal.png";
 import hoverIcon from "../../assets/icons/hover.png";
 import markedIcon from "../../assets/icons/marked.png";
+import trashIcon from "../../assets/icons/trash.png";
+import trashBlackIcon from "../../assets/icons/trash_black.png";
 
 function NewsCard({
   article,
   isLoggedIn = false,
   savedArticles,
   onSaveArticle,
+  isSavedPage = false,
 }) {
   const formattedDate = new Date(article.publishedAt).toLocaleDateString(
     "en-US",
@@ -33,33 +36,59 @@ function NewsCard({
           alt={article.title || "News image"}
         />
 
+        {isSavedPage && (
+          <span className="news-card__keyword">{article.keyword}</span>
+        )}
+
         <button
           className={`news-card__save-button ${
             isSaved ? "news-card__save-button_active" : ""
-          }`}
+          } ${isSavedPage ? "news-card__save-button_delete" : ""}`}
           type="button"
-          aria-label="Save article"
+          aria-label={isSavedPage ? "Remove from saved" : "Save article"}
           onClick={() => onSaveArticle(article)}
         >
-          <img
-            className="news-card__save-icon news-card__save-icon_normal"
-            src={normalIcon}
-            alt=""
-          />
-          <img
-            className="news-card__save-icon news-card__save-icon_hover"
-            src={hoverIcon}
-            alt=""
-          />
-          <img
-            className="news-card__save-icon news-card__save-icon_marked"
-            src={markedIcon}
-            alt=""
-          />
+          {isSavedPage ?
+            <>
+              <img
+                className="news-card__save-icon news-card__save-icon_normal"
+                src={trashIcon}
+                alt=""
+              />
+              <img
+                className="news-card__save-icon news-card__save-icon_hover"
+                src={trashBlackIcon}
+                alt=""
+              />
+            </>
+          : <>
+              <img
+                className="news-card__save-icon news-card__save-icon_normal"
+                src={normalIcon}
+                alt=""
+              />
+              <img
+                className="news-card__save-icon news-card__save-icon_hover"
+                src={hoverIcon}
+                alt=""
+              />
+              <img
+                className="news-card__save-icon news-card__save-icon_marked"
+                src={markedIcon}
+                alt=""
+              />
+            </>
+          }
         </button>
 
-        {!isLoggedIn && (
+        {!isLoggedIn && !isSavedPage && (
           <span className="news-card__tooltip">Sign in to save articles</span>
+        )}
+
+        {isSavedPage && (
+          <span className="news-card__tooltip news-card__tooltip_saved">
+            Remove from saved
+          </span>
         )}
       </div>
 

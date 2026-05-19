@@ -26,6 +26,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [savedArticles, setSavedArticles] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
+  const [currentKeyword, setCurrentKeyword] = useState("");
 
   const handleSignUpClick = () => {
     setActiveModal("register");
@@ -79,6 +80,7 @@ function App() {
     }
 
     setSearchError("");
+    setCurrentKeyword(keyword);
     setArticles([]);
     setVisibleCards(3);
     setHasSearched(true);
@@ -121,7 +123,10 @@ function App() {
           console.error(err);
         });
     } else {
-      saveArticle(article)
+      saveArticle({
+        ...article,
+        keyword: currentKeyword,
+      })
         .then((savedArticle) => {
           setSavedArticles((currentSavedArticles) => [
             ...currentSavedArticles,
@@ -197,7 +202,17 @@ function App() {
             />
           }
         />
-        <Route path="/saved-news" element={<SavedNews />} />
+        <Route
+          path="/saved-news"
+          element={
+            <SavedNews
+              savedArticles={savedArticles}
+              onSaveArticle={handleSaveArticle}
+              isLoggedIn={isLoggedIn}
+              currentUser={currentUser}
+            />
+          }
+        />
       </Routes>
 
       <Footer />

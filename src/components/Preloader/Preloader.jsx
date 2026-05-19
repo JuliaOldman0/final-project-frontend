@@ -1,9 +1,10 @@
 import "./Preloader.css";
+import ellipseIcon from "../../assets/icons/Ellipse.png";
 
 function Preloader() {
   return (
     <section className="preloader">
-      <div className="preloader__circle"></div>
+      <img className="preloader__circle" src={ellipseIcon} alt="Loading" />
       <p className="preloader__text">Searching for news...</p>
     </section>
   );

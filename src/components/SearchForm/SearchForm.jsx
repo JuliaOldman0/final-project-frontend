@@ -24,7 +24,11 @@ function SearchForm({ onSearchSubmit, searchError }) {
         onChange={handleChange}
       />
 
-      <button className="search-form__button" type="submit">
+      <button
+        className="search-form__button"
+        type="submit"
+        disabled={!keyword.trim()}
+      >
         Search
       </button>
 
