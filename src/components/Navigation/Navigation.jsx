@@ -1,18 +1,35 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 import "./Navigation.css";
 import logoutIcon from "../../assets/icons/logout.png";
+import logoutBlackIcon from "../../assets/icons/logout_black.png";
 
-function Navigation({ onSignInClick, isLoggedIn, currentUser, onSignOut }) {
+function Navigation({
+  onSignInClick,
+  isLoggedIn,
+  currentUser,
+  onSignOut,
+  isSavedNewsPage,
+}) {
   return (
     <nav className="navigation">
-      <Link className="navigation__link navigation__link_active" to="/">
+      <NavLink
+        className={({ isActive }) =>
+          `navigation__link ${isActive ? "navigation__link_active" : ""}`
+        }
+        to="/"
+      >
         Home
-      </Link>
+      </NavLink>
 
       {isLoggedIn && (
-        <Link className="navigation__link" to="/saved-news">
+        <NavLink
+          className={({ isActive }) =>
+            `navigation__link ${isActive ? "navigation__link_active" : ""}`
+          }
+          to="/saved-news"
+        >
           Saved articles
-        </Link>
+        </NavLink>
       )}
 
       {isLoggedIn ?
@@ -24,7 +41,7 @@ function Navigation({ onSignInClick, isLoggedIn, currentUser, onSignOut }) {
           {currentUser?.name || "User"}
           <img
             className="navigation__logout-icon"
-            src={logoutIcon}
+            src={isSavedNewsPage ? logoutBlackIcon : logoutIcon}
             alt="Log out"
           />
         </button>
