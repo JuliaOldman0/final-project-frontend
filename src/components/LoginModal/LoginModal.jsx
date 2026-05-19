@@ -1,9 +1,14 @@
 import "./LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 
-function LoginModal() {
+function LoginModal({ isOpen, onClose }) {
   return (
-    <ModalWithForm title="Sign in" buttonText="Sign in">
+    <ModalWithForm
+      title="Sign in"
+      buttonText="Sign in"
+      isOpen={isOpen}
+      onClose={onClose}
+    >
       <label className="login-modal__label">
         Email
         <input

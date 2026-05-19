@@ -2,13 +2,13 @@ import { Link } from "react-router";
 import "./Header.css";
 import Navigation from "../Navigation/Navigation.jsx";
 
-function Header() {
+function Header({ onSignInClick }) {
   return (
     <header className="header">
       <Link className="header__logo" to="/">
         NewsExplorer
       </Link>
-      <Navigation />
+      <Navigation onSignInClick={onSignInClick} />
     </header>
   );
 }

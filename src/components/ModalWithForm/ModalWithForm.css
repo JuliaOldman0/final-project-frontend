@@ -1,8 +1,19 @@
 .modal {
   display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_opened {
+  display: flex;
 }
 
 .modal__content {
+  position: relative;
   width: 430px;
   padding: 34px 36px 28px;
   border-radius: 16px;
@@ -10,9 +21,14 @@
 }
 
 .modal__close {
+  position: absolute;
+  top: -46px;
+  right: -46px;
   border: none;
   background: transparent;
-  font-size: 32px;
+  font-size: 42px;
+  line-height: 1;
+  color: #fff;
   cursor: pointer;
 }
 
