@@ -69,3 +69,10 @@
 .news__button:hover {
   background-color: #e8e8e8;
 }
+
+.news__error {
+  color: #ff0000;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+}

@@ -28,7 +28,9 @@ function SearchForm({ onSearchSubmit, searchError }) {
         Search
       </button>
 
-      {searchError && <span className="search-form__error">{searchError}</span>}
+      {searchError === "Please enter a keyword" && (
+        <span className="search-form__error">{searchError}</span>
+      )}
     </form>
   );
 }

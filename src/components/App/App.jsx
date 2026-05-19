@@ -13,6 +13,8 @@ function App() {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchError, setSearchError] = useState("");
+  const [hasSearched, setHasSearched] = useState(false);
+  const [visibleCards, setVisibleCards] = useState(3);
 
   const handleSignInClick = () => {
     setActiveModal("login");
@@ -30,6 +32,8 @@ function App() {
 
     setSearchError("");
     setArticles([]);
+    setVisibleCards(3);
+    setHasSearched(true);
     setIsLoading(true);
 
     searchNews(keyword)
@@ -39,7 +43,7 @@ function App() {
       .catch((err) => {
         console.error(err);
         setSearchError(
-          "Something went wrong during the request. Please try again.",
+          "Sorry, something went wrong during the request. Please try again later.",
         );
       })
       .finally(() => {
@@ -74,6 +78,9 @@ function App() {
               isLoading={isLoading}
               searchError={searchError}
               onSearchSubmit={handleSearchSubmit}
+              hasSearched={hasSearched}
+              visibleCards={visibleCards}
+              setVisibleCards={setVisibleCards}
             />
           }
         />
