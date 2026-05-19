@@ -11,6 +11,9 @@ function Main({
   hasSearched,
   visibleCards,
   setVisibleCards,
+  isLoggedIn,
+  savedArticles,
+  onSaveArticle,
 }) {
   const visibleArticles = articles.slice(0, visibleCards);
 
@@ -48,7 +51,13 @@ function Main({
           {!isLoading && !searchError && articles.length > 0 && (
             <ul className="news__list">
               {visibleArticles.map((article) => (
-                <NewsCard key={article.url} article={article} />
+                <NewsCard
+                  key={article.url}
+                  article={article}
+                  isLoggedIn={isLoggedIn}
+                  savedArticles={savedArticles}
+                  onSaveArticle={onSaveArticle}
+                />
               ))}
             </ul>
           )}

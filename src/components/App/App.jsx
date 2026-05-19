@@ -15,6 +15,8 @@ function App() {
   const [searchError, setSearchError] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
   const [visibleCards, setVisibleCards] = useState(3);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [savedArticles, setSavedArticles] = useState([]);
 
   const handleSignInClick = () => {
     setActiveModal("login");
@@ -51,6 +53,26 @@ function App() {
       });
   }
 
+  function handleSaveArticle(article) {
+    if (!isLoggedIn) {
+      return;
+    }
+
+    const isAlreadySaved = savedArticles.some(
+      (savedArticle) => savedArticle.url === article.url,
+    );
+
+    if (isAlreadySaved) {
+      setSavedArticles(
+        savedArticles.filter(
+          (savedArticle) => savedArticle.url !== article.url,
+        ),
+      );
+    } else {
+      setSavedArticles([...savedArticles, article]);
+    }
+  }
+
   useEffect(() => {
     const handleEscClose = (event) => {
       if (event.key === "Escape") {
@@ -81,6 +103,9 @@ function App() {
               hasSearched={hasSearched}
               visibleCards={visibleCards}
               setVisibleCards={setVisibleCards}
+              isLoggedIn={isLoggedIn}
+              savedArticles={savedArticles}
+              onSaveArticle={handleSaveArticle}
             />
           }
         />
