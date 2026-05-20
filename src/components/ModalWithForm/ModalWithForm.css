@@ -155,3 +155,45 @@
     line-height: 15px;
   }
 }
+
+/* Phone */
+@media screen and (max-width: 550px) {
+  .modal {
+    align-items: flex-end;
+    justify-content: center;
+    overflow-y: auto;
+  }
+
+  .modal__content {
+    width: 100%;
+    min-height: 560px;
+    padding: 16px 16px 28px;
+    box-sizing: border-box;
+    border-radius: 16px 16px 0 0;
+    box-shadow: none;
+  }
+
+  .modal__close {
+    top: -48px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    font-size: 32px;
+    line-height: 24px;
+  }
+
+  .modal__title {
+    margin: 0 0 18px;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .modal__submit {
+    height: 64px;
+    margin-top: 24px;
+  }
+
+  .modal__footer {
+    margin-top: 16px;
+  }
+}

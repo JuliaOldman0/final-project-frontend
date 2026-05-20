@@ -259,3 +259,56 @@
     line-height: 14px;
   }
 }
+
+/* Phone */
+@media screen and (max-width: 550px) {
+  .news-card {
+    width: 288px;
+    min-height: 440px;
+    border-radius: 10px;
+  }
+
+  .news-card__image-container {
+    height: 196px;
+  }
+
+  .news-card__image {
+    height: 196px;
+  }
+
+  .news-card__content {
+    padding: 16px;
+  }
+
+  .news-card__date {
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .news-card__title {
+    min-height: auto;
+    margin-bottom: 10px;
+    font-size: 22px;
+    line-height: 24px;
+    -webkit-line-clamp: 2;
+  }
+
+  .news-card__text {
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 22px;
+    -webkit-line-clamp: 4;
+  }
+
+  .news-card__source {
+    margin-top: auto;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .news-card__save-button {
+    top: 16px;
+    right: 16px;
+  }
+}

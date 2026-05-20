@@ -100,3 +100,10 @@
     height: 18px;
   }
 }
+
+/* Phone */
+@media screen and (max-width: 550px) {
+  .navigation {
+    display: none;
+  }
+}
