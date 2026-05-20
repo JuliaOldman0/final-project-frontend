@@ -76,6 +76,16 @@
   background-color: #347eff;
 }
 
+.modal__submit:disabled {
+  background-color: #e6e8eb;
+  color: #b6bcbf;
+  cursor: default;
+}
+
+.modal__submit:disabled:hover {
+  background-color: #e6e8eb;
+}
+
 .modal__footer {
   margin: 16px 0 0;
   text-align: center;
@@ -96,20 +106,52 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 550px) {
+/* Tablet */
+@media screen and (min-width: 551px) and (max-width: 900px) {
   .modal {
-    align-items: flex-end;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 96px;
+    overflow-y: auto;
   }
 
   .modal__content {
-    width: 100%;
-    min-height: 100vh;
-    padding: 16px;
-    border-radius: 16px 16px 0 0;
+    width: 360px;
+    min-height: auto;
+    padding: 24px 32px 20px;
+    border-radius: 12px;
   }
 
   .modal__close {
-    top: -40px;
-    right: 16px;
+    top: -34px;
+    right: -6px;
+    width: 24px;
+    height: 24px;
+    font-size: 28px;
+    line-height: 24px;
+  }
+
+  .modal__title {
+    margin-bottom: 18px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .modal__submit {
+    height: 48px;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .modal__footer {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .modal__link {
+    font-size: 12px;
+    line-height: 15px;
   }
 }

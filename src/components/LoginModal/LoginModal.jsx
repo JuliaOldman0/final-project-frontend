@@ -8,6 +8,8 @@ function LoginModal({ isOpen, onClose, onLogin, onSignUpClick }) {
 
   const isEmailInvalid = email.length > 0 && !email.includes("@");
 
+  const isSubmitDisabled = !email || !password || isEmailInvalid;
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -28,6 +30,7 @@ function LoginModal({ isOpen, onClose, onLogin, onSignUpClick }) {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      isSubmitDisabled={isSubmitDisabled}
       footer={
         <>
           or{" "}

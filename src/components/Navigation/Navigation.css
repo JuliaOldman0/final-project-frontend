@@ -64,3 +64,39 @@
   border-color: #1a1b22;
   color: #1a1b22;
 }
+
+/* Tablet */
+@media screen and (min-width: 551px) and (max-width: 900px) {
+  .navigation {
+    gap: 32px;
+  }
+
+  .navigation__link {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .navigation__link_active::after {
+    bottom: -22px;
+  }
+
+  .navigation__button {
+    min-width: 100px;
+    height: 40px;
+    padding: 0 15px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .navigation__button_user {
+    gap: 8px;
+    min-width: 100px;
+    height: 40px;
+    padding: 0 12px 0 16px;
+  }
+
+  .navigation__logout-icon {
+    width: 18px;
+    height: 18px;
+  }
+}

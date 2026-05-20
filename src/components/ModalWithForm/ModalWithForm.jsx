@@ -8,6 +8,7 @@ function ModalWithForm({
   onClose,
   onSubmit,
   footer,
+  isSubmitDisabled,
 }) {
   const handleOverlayClick = (event) => {
     if (event.target === event.currentTarget) {
@@ -30,7 +31,11 @@ function ModalWithForm({
         <form className="modal__form" onSubmit={onSubmit}>
           {children}
 
-          <button className="modal__submit" type="submit">
+          <button
+            className="modal__submit"
+            type="submit"
+            disabled={isSubmitDisabled}
+          >
             {buttonText}
           </button>
 

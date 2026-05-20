@@ -14,6 +14,8 @@ function RegisterModal({
 
   const isEmailInvalid = email.length > 0 && !email.includes("@");
 
+  const isSubmitDisabled = !email || !password || !username || isEmailInvalid;
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -38,6 +40,7 @@ function RegisterModal({
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      isSubmitDisabled={isSubmitDisabled}
       footer={
         <>
           or{" "}
