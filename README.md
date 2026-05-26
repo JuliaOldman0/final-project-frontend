@@ -1,6 +1,6 @@
 # News Explorer Frontend
 
-A React + Vite frontend application for searching news articles using the News API. Users can search for recent articles, view results, simulate signing in, and save articles using stubbed frontend backend responses.
+A React + Vite frontend application for searching news articles using the News API. Users can search for recent articles, view results, simulate signing in, and save articles using mocked frontend responses.
 
 ## Live Demo
 
@@ -20,6 +20,10 @@ The app allows users to:
 - Simulate user login
 - Simulate token checking
 - Simulate saving and deleting articles
+
+## Project Pitch Video
+
+Check out [my News Explorer project pitch video](https://drive.google.com/file/d/1GfV80l6O2JW1t_eHQ7bV1e6dOgm_ugY6/view?usp=drive_link), where I describe the project, deployment process, and challenges I faced while building it.
 
 ## Technologies Used
 
