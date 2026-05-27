@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router";
 import "./Header.css";
 import Navigation from "../Navigation/Navigation.jsx";
-import menuIcon from "../../assets/icons/menu.png";
-import logoutIcon from "../../assets/icons/logout.png";
-import menuBlackIcon from "../../assets/icons/menu_black.png";
+import menuIcon from "../../assets/icons/menu.svg";
+import logoutIcon from "../../assets/icons/logout.svg";
+import menuBlackIcon from "../../assets/icons/menu_black.svg";
 
 function Header({ onSignInClick, isLoggedIn, currentUser, onSignOut }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

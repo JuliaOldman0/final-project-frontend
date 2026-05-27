@@ -1,7 +1,7 @@
 import { NavLink } from "react-router";
 import "./Navigation.css";
-import logoutIcon from "../../assets/icons/logout.png";
-import logoutBlackIcon from "../../assets/icons/logout_black.png";
+import logoutIcon from "../../assets/icons/logout.svg";
+import logoutBlackIcon from "../../assets/icons/logout_black.svg";
 
 function Navigation({
   onSignInClick,

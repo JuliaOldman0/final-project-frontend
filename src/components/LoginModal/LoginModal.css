@@ -1,9 +1,9 @@
 .login-modal__label {
   margin-bottom: 30px;
+  color: #2f71e5;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 12px;
   line-height: 15px;
-  color: #2f71e5;
 }
 
 .login-modal__input {
@@ -13,10 +13,19 @@
   border: none;
   border-bottom: 1px solid #000;
   outline: none;
+  color: #000;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 14px;
   line-height: 17px;
-  color: #000;
+  transition: border-color 0.2s ease;
+}
+
+.login-modal__input:hover {
+  border-bottom-color: #2f71e5;
+}
+
+.login-modal__input:focus {
+  border-bottom-color: #2f71e5;
 }
 
 .login-modal__input::placeholder {
@@ -26,8 +35,8 @@
 .login-modal__error {
   display: block;
   margin-top: 3px;
+  color: #ff0000;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 12px;
   line-height: 15px;
-  color: #ff0000;
 }

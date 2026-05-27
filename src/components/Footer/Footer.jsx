@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import "./Footer.css";
-import githubIcon from "../../assets/icons/github.png";
-import linkedInIcon from "../../assets/icons/LinkedIn.png";
+import githubIcon from "../../assets/icons/github.svg";
+import linkedInIcon from "../../assets/icons/linkedin.svg";
 
 function Footer() {
   const currentYear = new Date().getFullYear();

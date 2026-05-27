@@ -1,9 +1,9 @@
 import "./NewsCard.css";
-import normalIcon from "../../assets/icons/normal.png";
-import hoverIcon from "../../assets/icons/hover.png";
-import markedIcon from "../../assets/icons/marked.png";
-import trashIcon from "../../assets/icons/trash.png";
-import trashBlackIcon from "../../assets/icons/trash_black.png";
+import normalIcon from "../../assets/icons/normal.svg";
+import hoverIcon from "../../assets/icons/hover.svg";
+import markedIcon from "../../assets/icons/marked.svg";
+import trashIcon from "../../assets/icons/trash.svg";
+import trashBlackIcon from "../../assets/icons/trash_black.svg";
 
 function NewsCard({
   article,
@@ -28,13 +28,21 @@ function NewsCard({
   return (
     <li className="news-card">
       <div className="news-card__image-container">
-        <img
-          className="news-card__image"
-          src={
-            article.urlToImage || "https://placehold.co/400x300?text=No+Image"
-          }
-          alt={article.title || "News image"}
-        />
+        <a
+          className="news-card__link"
+          href={article.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open article: ${article.title}`}
+        >
+          <img
+            className="news-card__image"
+            src={
+              article.urlToImage || "https://placehold.co/400x300?text=No+Image"
+            }
+            alt={article.title || "News image"}
+          />
+        </a>
 
         {isSavedPage && (
           <span className="news-card__keyword">{article.keyword}</span>
@@ -92,7 +100,13 @@ function NewsCard({
         )}
       </div>
 
-      <div className="news-card__content">
+      <a
+        className="news-card__content news-card__content-link"
+        href={article.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Open article: ${article.title}`}
+      >
         <p className="news-card__date">{formattedDate}</p>
         <h3 className="news-card__title">{article.title}</h3>
         <p className="news-card__text">
@@ -101,7 +115,7 @@ function NewsCard({
         <p className="news-card__source">
           {article.source?.name || "Unknown source"}
         </p>
-      </div>
+      </a>
     </li>
   );
 }

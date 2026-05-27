@@ -82,10 +82,10 @@
   }
 
   .saved-news__list {
-    grid-template-columns: repeat(3, 224px);
+    grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
     gap: 8px;
     max-width: 688px;
-    margin: 0;
+    margin: 0 auto;
   }
 }
 

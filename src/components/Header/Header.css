@@ -20,6 +20,11 @@
   line-height: 24px;
   font-weight: 700;
   text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.header__logo:hover {
+  opacity: 0.8;
 }
 
 .header__menu-button {
@@ -72,6 +77,11 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .header__menu-button:hover {
+    opacity: 0.8;
   }
 
   .header__menu-icon {
@@ -120,6 +130,11 @@
     line-height: 24px;
     font-weight: 700;
     text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .header__mobile-logo:hover {
+    opacity: 0.8;
   }
 
   .header__mobile-close {
@@ -132,6 +147,11 @@
     font-size: 32px;
     line-height: 24px;
     cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .header__mobile-close:hover {
+    opacity: 0.8;
   }
 
   .header__mobile-link {
@@ -143,6 +163,11 @@
     line-height: 56px;
     font-weight: 500;
     text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .header__mobile-link:hover {
+    opacity: 0.8;
   }
 
   .header__mobile-button {
@@ -162,6 +187,13 @@
     line-height: 24px;
     font-weight: 500;
     cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  .header__mobile-button:hover {
+    opacity: 0.8;
   }
 
   .header__mobile-logout-icon {

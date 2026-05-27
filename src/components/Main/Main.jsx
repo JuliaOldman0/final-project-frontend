@@ -3,7 +3,7 @@ import SearchForm from "../SearchForm/SearchForm.jsx";
 import NewsCard from "../NewsCard/NewsCard.jsx";
 import Preloader from "../Preloader/Preloader.jsx";
 import About from "../About/About.jsx";
-import notFoundIcon from "../../assets/icons/not-found_v1.png";
+import notFoundIcon from "../../assets/icons/not-found.svg";
 
 function Main({
   articles,

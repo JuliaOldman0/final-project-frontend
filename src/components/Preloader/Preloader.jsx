@@ -1,5 +1,5 @@
 import "./Preloader.css";
-import ellipseIcon from "../../assets/icons/Ellipse.png";
+import ellipseIcon from "../../assets/icons/ellipse.svg";
 
 function Preloader() {
   return (
