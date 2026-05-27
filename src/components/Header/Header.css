@@ -1,0 +1,211 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 80px;
+  padding: 0 104px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.header__logo {
+  color: #fff;
+  font-family: "Roboto Slab", Georgia, serif;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.header__logo:hover {
+  opacity: 0.8;
+}
+
+.header__menu-button {
+  display: none;
+}
+
+.header_light {
+  position: relative;
+  color: #1a1b22;
+  background-color: #fff;
+  border-bottom: 1px solid #d1d2d6;
+}
+
+.header_light .header__logo {
+  color: #1a1b22;
+}
+
+/* Tablet */
+@media screen and (min-width: 551px) and (max-width: 900px) {
+  .header {
+    min-height: 66px;
+    padding: 0 40px;
+  }
+
+  .header__logo {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+/* Phone */
+@media screen and (max-width: 550px) {
+  .header {
+    min-height: 56px;
+    padding: 0 16px;
+  }
+
+  .header__logo {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .header__menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .header__menu-button:hover {
+    opacity: 0.8;
+  }
+
+  .header__menu-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .header_menu-opened {
+    background-color: #1a1b22;
+    border-bottom: none;
+  }
+
+  .header_menu-opened > .header__logo,
+  .header_menu-opened > .header__menu-button,
+  .header_menu-opened > .navigation {
+    display: none;
+  }
+
+  .header__mobile-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    padding: 16px 16px 24px;
+    box-sizing: border-box;
+    border-radius: 0 0 16px 16px;
+    background-color: #1a1b22;
+    color: #fff;
+  }
+
+  .header__mobile-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 40px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .header__mobile-logo {
+    color: #fff;
+    font-family: "Roboto Slab", Georgia, serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .header__mobile-logo:hover {
+    opacity: 0.8;
+  }
+
+  .header__mobile-close {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font-size: 32px;
+    line-height: 24px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .header__mobile-close:hover {
+    opacity: 0.8;
+  }
+
+  .header__mobile-link {
+    display: block;
+    margin-top: 22px;
+    color: #fff;
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 18px;
+    line-height: 56px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .header__mobile-link:hover {
+    opacity: 0.8;
+  }
+
+  .header__mobile-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 56px;
+    margin-top: 22px;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    background-color: transparent;
+    color: #fff;
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  .header__mobile-button:hover {
+    opacity: 0.8;
+  }
+
+  .header__mobile-logout-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+  }
+
+  .header__mobile-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 19;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
